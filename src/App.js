@@ -1,7 +1,5 @@
-import AddIcon from '@mui/icons-material/Add'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
-import Fab from '@mui/material/Fab'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import { LoginPage } from './pages/login-page/LoginPage.js';
@@ -11,7 +9,6 @@ export default function App() {
 
   let isLogin = true;
   const sampleLocation = useLocation();
-  console.log(sampleLocation.pathname);
   if (sampleLocation.pathname === '/') {
     isLogin = true;
   } else {
