@@ -1,6 +1,7 @@
 import { Typography, TextField, FormGroup, Button, Divider } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import './LoginPage.css';
+import '../../'
 
 export function LoginPage() {
 
@@ -21,7 +22,7 @@ export function LoginPage() {
             <TextField id="password" label="Password" variant="outlined" color="header" type='password' />
             <Button variant="contained" color="header">LOGIN</Button>
           </FormGroup>
-          <Divider variant="inset" textAlign="center" style={{margin: 0}}>Or</Divider>
+          <Divider variant="inset" textAlign="center" style={{margin: 0, color:"#e0e0e0"}}>Or</Divider>
           <Button color="secondary" variant="contained" className="login-button">LOGIN WITH GITHUB</Button>
           <Button color="secondary" variant="contained" className="login-button">LOGIN WITH GOOGLE</Button>
         </Root>

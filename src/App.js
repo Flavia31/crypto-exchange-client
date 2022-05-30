@@ -31,7 +31,7 @@ export default function App() {
           </Toolbar>
         </AppBar>
       </Box>
-      <Box sx={{ p: 3, display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff', marginInline: isLogin ? 60 : 10, marginY: isLogin ? 20 : 10, minWidth: isLogin ? 450 : 650 }}>
+      <Box sx={{ p: 3, display: 'flex', justifyContent: 'center', alignItems: 'center', marginInline: isLogin ? 60 : 10, marginY: isLogin ? 20 : 10, minWidth: isLogin ? 450 : 650 }} backgroundColor="background.paper">
         <LoginPage></LoginPage>
       </Box>
     </>
