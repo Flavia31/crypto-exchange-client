@@ -36,6 +36,7 @@ export function LoginPage() {
           <Button color="secondary" variant="contained" className="login-button">LOGIN WITH GITHUB</Button>
           <Button color="secondary" variant="contained" className="login-button">LOGIN WITH GOOGLE</Button>
         </Root>
+        <Typography variant="subtitle-1" className="login-register-text">Don’t have an account? Register<Button className="login-register-button">here</Button></Typography>
       </main>
     );
   }
