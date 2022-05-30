@@ -15,6 +15,10 @@ const theme = createTheme({
       paper: '#fff',
     },
     divider: grey[300],
+    header: {
+      main: '#3F51B5',
+      contrastText: '#fff'
+    },
   },
   spacing: 8,
   typography: {
