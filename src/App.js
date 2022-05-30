@@ -4,9 +4,20 @@ import Box from '@mui/material/Box'
 import Fab from '@mui/material/Fab'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
-import { LoginPage } from './pages/login-page/LoginPage.js'
+import { LoginPage } from './pages/login-page/LoginPage.js';
+import { useLocation } from "react-router-dom"
 
 export default function App() {
+
+  let isLogin = true;
+  const sampleLocation = useLocation();
+  console.log(sampleLocation.pathname);
+  if (sampleLocation.pathname === '/') {
+    isLogin = true;
+  } else {
+    isLogin = false;
+  }
+  
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
@@ -23,19 +34,9 @@ export default function App() {
           </Toolbar>
         </AppBar>
       </Box>
-      <Box sx={{ p: 3 }}>
+      <Box sx={{ p: 3, display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff', marginX: isLogin ? 80 : 10, marginY: isLogin ? 20 : 10 }}>
         <LoginPage></LoginPage>
       </Box>
-      <Fab
-        color="secondary"
-        sx={{
-          position: 'fixed',
-          right: ({ spacing }) => spacing(3),
-          bottom: ({ spacing }) => spacing(3),
-        }}
-      >
-        <AddIcon />
-      </Fab>
     </>
   )
 }
