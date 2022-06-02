@@ -14,6 +14,8 @@ export default function App() {
 
     // 👇️ set style on body element
     document.body.style.height = '100vh';
+    const root = document.getElementById('root');
+    root.style.height = 'calc(100% - 10rem)'
 
     return () => {
     };
@@ -43,7 +45,7 @@ export default function App() {
           </Toolbar>
         </AppBar>
       </Box>
-      <Box sx={{ p: 3, display: 'flex', justifyContent: isLogin ? 'center' : 'flex-start', alignItems: isLogin ? 'center' : 'flex-start', marginInline: isLogin ? 60 : 5, marginY: isLogin ? 20 : 5, minWidth: isLogin ? 450 : 650}} backgroundColor="background.paper">
+      <Box sx={{ p: 3, display: 'flex', justifyContent: isLogin ? 'center' : 'flex-start', alignItems: isLogin ? 'center' : 'flex-start', marginInline: isLogin ? 60 : 5, marginY: isLogin ? 20 : 5, minWidth: isLogin ? 450 : 650, height: '100%'}} backgroundColor="background.paper">
       { !isLogin ? <ResponsiveDrawer/> : null}
         <Routes>
           <Route path="/" element={<LoginPage />} />

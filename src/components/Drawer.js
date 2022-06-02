@@ -48,7 +48,7 @@ export function ResponsiveDrawer(props) {
   );
 
   return (
-    <Box sx={{ display: 'flex', minHeight: 552 }}>
+    <Box sx={{ display: 'flex', height: '100%'}}>
         <Drawer
           variant="permanent"
           sx={{
