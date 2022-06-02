@@ -1,0 +1,7 @@
+.drawer-wrapper {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-right: 24px;
+}
