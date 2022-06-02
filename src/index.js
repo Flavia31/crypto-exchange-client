@@ -7,11 +7,9 @@ import { LoginPage } from './pages/login-page/LoginPage.js'
 
 ReactDOM.render(
   <ThemeProvider>
+    {/* <App /> */}
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        {/* <Route path="/" element={<LoginPage />} /> */}
-      </Routes>
+      <App />
     </BrowserRouter>
   </ThemeProvider>,
   document.getElementById('root')

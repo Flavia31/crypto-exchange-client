@@ -3,7 +3,7 @@ import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import { LoginPage } from './pages/login-page/LoginPage.js';
-import { useLocation } from "react-router-dom"
+import { useLocation, Routes, Route,} from "react-router-dom"
 
 export default function App() {
 
@@ -32,7 +32,9 @@ export default function App() {
         </AppBar>
       </Box>
       <Box sx={{ p: 3, display: 'flex', justifyContent: 'center', alignItems: 'center', marginInline: isLogin ? 60 : 10, marginY: isLogin ? 20 : 10, minWidth: isLogin ? 450 : 650 }} backgroundColor="background.paper">
-        <LoginPage></LoginPage>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+        </Routes>
       </Box>
     </>
   )
