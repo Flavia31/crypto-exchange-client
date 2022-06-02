@@ -2,6 +2,7 @@ import { Typography, TextField, FormGroup, Button, Divider } from "@mui/material
 import { styled } from '@mui/material/styles';
 import './LoginPage.css';
 import '../../'
+import * as Request from '../../services/requests'
 
 export function LoginPage() {
 
@@ -13,6 +14,17 @@ export function LoginPage() {
     },
   }));
 
+  const login = () => {
+    Request.post("login", { username: "Flavia1234", password: "123456"})
+  }
+
+  const loginWithGoogle = () => {
+    Request.get("google")
+  }
+  const loginWithGitHub = () => {
+    Request.get("github")
+  }
+
     return (
       <main className="login-page">
         <Typography variant="h2" className="login-title">Login</Typography>
@@ -20,11 +32,11 @@ export function LoginPage() {
           <FormGroup className="form-group">
             <TextField id="username" label="Username" variant="outlined" color="header" />
             <TextField id="password" label="Password" variant="outlined" color="header" type='password' />
-            <Button variant="contained" color="header">LOGIN</Button>
+            <Button variant="contained" color="header" onClick={login}>LOGIN</Button>
           </FormGroup>
           <Divider variant="inset" textAlign="center" style={{margin: 0, color:"#e0e0e0"}}>Or</Divider>
-          <Button color="secondary" variant="contained" className="login-button">LOGIN WITH GITHUB</Button>
-          <Button color="secondary" variant="contained" className="login-button">LOGIN WITH GOOGLE</Button>
+          <Button color="secondary" variant="contained" className="login-button" onClick={loginWithGitHub}>LOGIN WITH GITHUB</Button>
+          <Button color="secondary" variant="contained" className="login-button" onClick={loginWithGoogle}>LOGIN WITH GOOGLE</Button>
         </Root>
         <Typography variant="subtitle-1" className="login-register-text">Don’t have an account? Register<Button className="login-register-button">here</Button></Typography>
       </main>
