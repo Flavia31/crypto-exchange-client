@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Moving from '@mui/icons-material/Moving';
@@ -56,7 +55,7 @@ export function ResponsiveDrawer(props) {
   );
 
   return (
-    <Box sx={{ display: 'flex', height: '100%'}}>
+    <Box sx={{ display: 'flex', height: '100%', marginRight: 2}}>
         <Drawer
           variant="permanent"
           sx={{
