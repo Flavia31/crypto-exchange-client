@@ -12,17 +12,25 @@ import AccountBox from '@mui/icons-material/AccountBox';
 import Typography from '@mui/material/Typography';
 import {  Button, Avatar } from "@mui/material";
 import avatar from '../static/avatar.png';
-import './DrawerStyle.css'
+import './DrawerStyle.css';
+import {Link} from 'react-router-dom'
 
-const drawerWidth = 240;
+const drawerWidth = '100%';
+const drawerLinks = [{
+  text: 'Transaction history',
+  path: '/'
+}, {
+  text: 'Currency ratio history',
+  path: '/'
+}, {
+  text: 'Profile',
+  path: '/'
+}] 
 
 export function ResponsiveDrawer(props) {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+  const logout = () => {
+    console.log('TODO: Implement the logout function')
+  }
 
   const drawer = (
     <div className='drawer-wrapper '>
@@ -32,18 +40,18 @@ export function ResponsiveDrawer(props) {
             <Typography>Joined 02/06/2022</Typography>
         </Box>
       <List>
-        {['Transaction history', 'Currency ratio history', 'Profile'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
+        {drawerLinks.map((link, index) => (
+          <ListItem key={link.text} disablePadding>
+            <ListItemButton component={Link} to={link.path}>
               <ListItemIcon>
-                {text !== 'Profile' ? <Moving /> : <AccountBox />}
+                {index !== 2 ? <Moving /> : <AccountBox />}
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={link.text} />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
-      <Button color="secondary" variant="contained">Logout</Button>
+      <Button color="secondary" variant="contained" onClick={logout} component={Link} to="/">Logout</Button>
     </div>
   );
 
@@ -53,7 +61,7 @@ export function ResponsiveDrawer(props) {
           variant="permanent"
           sx={{
             display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: '100%', position: 'relative' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, position: 'relative' },
           }}
           open
         >
@@ -62,13 +70,5 @@ export function ResponsiveDrawer(props) {
     </Box>
   );
 }
-
-ResponsiveDrawer.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
 
 export default ResponsiveDrawer;
