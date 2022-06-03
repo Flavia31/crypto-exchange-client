@@ -11,8 +11,6 @@ import {useEffect} from 'react'
 export default function App() {
 
   useEffect(() => {
-
-    // 👇️ set style on body element
     document.body.style.height = '100vh';
     const root = document.getElementById('root');
     root.style.height = 'calc(100% - 10rem)'
@@ -22,8 +20,8 @@ export default function App() {
   }, []);
 
   let isLogin = true;
-  const sampleLocation = useLocation();
-  if (sampleLocation.pathname === '/') {
+  const location = useLocation();
+  if (location.pathname === '/') {
     isLogin = true;
   } else {
     isLogin = false;
