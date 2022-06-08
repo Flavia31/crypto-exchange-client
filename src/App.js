@@ -23,8 +23,7 @@ export default function App() {
   const location = useLocation();
   if (location.pathname === '/') {
     isLogin = true;
-  } else {
-    isLogin = false;
+  }
   }
   
   return (
