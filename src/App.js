@@ -3,16 +3,27 @@ import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import { LoginPage } from './pages/login-page/LoginPage.js';
-import { useLocation, Routes, Route,} from "react-router-dom"
+import { useLocation, Routes, Route,} from "react-router-dom";
+import { TransactionHistoryPage } from './pages/transaction-history-page/TransactionHistory.js';
+import { ResponsiveDrawer } from './components/Drawer.js';
+import {useEffect} from 'react'
 
 export default function App() {
 
-  let isLogin = true;
-  const sampleLocation = useLocation();
-  if (sampleLocation.pathname === '/') {
+  useEffect(() => {
+    document.body.style.height = '100vh';
+    const root = document.getElementById('root');
+    root.style.height = 'calc(100% - 10rem)'
+
+    return () => {
+    };
+  }, []);
+
+  let isLogin = false;
+  const location = useLocation();
+  if (location.pathname === '/') {
     isLogin = true;
-  } else {
-    isLogin = false;
+  }
   }
   
   return (
@@ -31,9 +42,11 @@ export default function App() {
           </Toolbar>
         </AppBar>
       </Box>
-      <Box sx={{ p: 3, display: 'flex', justifyContent: 'center', alignItems: 'center', marginInline: isLogin ? 60 : 10, marginY: isLogin ? 20 : 10, minWidth: isLogin ? 450 : 650 }} backgroundColor="background.paper">
+      <Box sx={{ p: 3, display: 'flex', justifyContent: isLogin ? 'center' : 'flex-start', alignItems: isLogin ? 'center' : 'flex-start', marginInline: isLogin ? 60 : 5, marginY: 5, minWidth: isLogin ? 450 : 650, height: '100%'}} backgroundColor="background.paper">
+      { !isLogin ? <ResponsiveDrawer/> : null}
         <Routes>
           <Route path="/" element={<LoginPage />} />
+          <Route path="/transaction-history" element={<TransactionHistoryPage />} />
         </Routes>
       </Box>
     </>
