@@ -19,7 +19,7 @@ export default function App() {
     };
   }, []);
 
-  let isLogin = true;
+  let isLogin = false;
   const location = useLocation();
   if (location.pathname === '/') {
     isLogin = true;
