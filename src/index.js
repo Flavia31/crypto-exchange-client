@@ -2,8 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import ThemeProvider from './ThemeProvider'
-import { BrowserRouter, Routes, Route,} from "react-router-dom"
-import { LoginPage } from './pages/login-page/LoginPage.js'
+import { BrowserRouter} from "react-router-dom"
 
 ReactDOM.render(
   <ThemeProvider>

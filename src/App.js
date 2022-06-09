@@ -7,10 +7,13 @@ import { useLocation, Routes, Route,} from "react-router-dom";
 import { TransactionHistoryPage } from './pages/transaction-history-page/TransactionHistory.js';
 import { ResponsiveDrawer } from './components/Drawer.js';
 import {useEffect} from 'react'
+import Register from './pages/register-page/RegisterPage';
+import MainPage from 'pages/main-page/MainPage.js';
 
 export default function App() {
 
   useEffect(() => {
+
     document.body.style.height = '100vh';
     const root = document.getElementById('root');
     root.style.height = 'calc(100% - 10rem)'
@@ -19,11 +22,12 @@ export default function App() {
     };
   }, []);
 
-  let isLogin = false;
-  const location = useLocation();
-  if (location.pathname === '/') {
+  let isLogin = true;
+  const sampleLocation = useLocation();
+  if (sampleLocation.pathname === '/' || sampleLocation.pathname === '/register') {
     isLogin = true;
-  }
+  } else {
+    isLogin = false;
   }
   
   return (
@@ -42,11 +46,13 @@ export default function App() {
           </Toolbar>
         </AppBar>
       </Box>
-      <Box sx={{ p: 3, display: 'flex', justifyContent: isLogin ? 'center' : 'flex-start', alignItems: isLogin ? 'center' : 'flex-start', marginInline: isLogin ? 60 : 5, marginY: 5, minWidth: isLogin ? 450 : 650, height: '100%'}} backgroundColor="background.paper">
+      <Box sx={{ p: 3, display: 'flex', justifyContent: isLogin ? 'center' : 'flex-start', alignItems: isLogin ? 'center' : 'flex-start'}} backgroundColor="background.paper">
       { !isLogin ? <ResponsiveDrawer/> : null}
         <Routes>
           <Route path="/" element={<LoginPage />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/transaction-history" element={<TransactionHistoryPage />} />
+          <Route path="/main" element={<MainPage />} />
         </Routes>
       </Box>
     </>

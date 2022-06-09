@@ -4,6 +4,7 @@ import './LoginPage.css';
 import '../../'
 import * as Request from '../../services/requests'
 import {useState} from 'react'
+import { Link } from "react-router-dom";
 
 export function LoginPage() {
 
@@ -42,7 +43,7 @@ export function LoginPage() {
           <Button color="secondary" variant="contained" className="login-button" onClick={loginWithGitHub}>LOGIN WITH GITHUB</Button>
           <Button color="secondary" variant="contained" className="login-button" onClick={loginWithGoogle}>LOGIN WITH GOOGLE</Button>
         </Root>
-        <Typography variant="subtitle-1" className="login-register-text">Don’t have an account? Register<Button className="login-register-button">here</Button></Typography>
+        <Typography variant="subtitle-1" className="login-register-text">Don’t have an account? Register <Link to='/register' className='link'>Here!</Link></Typography>
       </main>
     );
   }
